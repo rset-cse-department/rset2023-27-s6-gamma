@@ -1,0 +1,725 @@
+/* =========================
+   GOOGLE FONT
+   ========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =========================
+   ROOT COLORS
+   ========================= */
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #06b6d4;
+    --bg: #f3f6fb;
+    --card: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+}
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Inter', sans-serif;
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+.app-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 40px 20px;
+
+}
+
+/* remove any black horizontal lines */
+
+hr {
+    display: none;
+}
+
+/* =========================
+   MAIN HEADER
+   ========================= */
+
+.main-header {
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+
+    color: white;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
+    letter-spacing: -0.5px;
+
+    margin-bottom: 40px;
+
+}
+
+/* =========================
+   CONTROLS
+   ========================= */
+
+.controls {
+
+    display: flex;
+
+    align-items: center;
+    /* vertical alignment */
+
+    justify-content: space-between;
+    /* push button to right */
+
+    gap: 20px;
+
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+    margin-bottom: 40px;
+
+}
+
+.control-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.control-group label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+
+    color: var(--muted);
+
+}
+
+/* dropdown */
+
+/* =========================
+   MODERN DROPDOWN
+   ========================= */
+
+select {
+
+    width: 260px;
+
+    padding: 12px 40px 12px 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #d1d5db;
+
+    background-color: #f8fafc;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    color: #1f2937;
+
+    appearance: none;
+
+    cursor: pointer;
+
+    transition: all .2s ease;
+
+    /* custom dropdown arrow */
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+
+    background-position: right 12px center;
+
+    background-size: 18px;
+
+}
+
+/* hover */
+
+select:hover {
+
+    border-color: #9ca3af;
+
+    background-color: #ffffff;
+
+}
+
+/* focus */
+
+select:focus {
+
+    outline: none;
+
+    border-color: #6366f1;
+
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+button.predict-btn {
+
+    padding: 12px 28px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+
+    color: white;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+
+    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35);
+
+}
+
+button.predict-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.45);
+
+}
+
+/* =========================
+   CARD GRID
+   ========================= */
+
+.card-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 30px;
+
+    margin-bottom: 30px;
+
+}
+
+/* =========================
+   CARD
+   ========================= */
+
+.card {
+
+    background: #16a34a;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    color: white;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    transition: all .3s ease;
+
+}
+
+.card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+
+}
+
+/* card title */
+
+.card p {
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    color: #d1fae5;
+
+}
+
+/* big numbers */
+
+.card h2 {
+
+    font-size: 48px;
+
+    font-weight: 900;
+
+    margin: 5px 0;
+
+}
+
+/* =========================
+   SECTION TITLE
+   ========================= */
+
+.section-title {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    margin-top: 50px;
+
+    margin-bottom: 25px;
+
+    padding: 18px 22px;
+
+    border-radius: 12px;
+
+    background: white;
+
+    border-left: 6px solid var(--primary);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    color: var(--text);
+
+}
+
+/* =========================
+   GRAPH CONTAINER
+   ========================= */
+
+.graph-container {
+
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+}
+
+/* =========================
+   TABLE
+   ========================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    margin-top: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+
+}
+
+th {
+
+    background: #f1f5f9;
+
+    padding: 16px;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .6px;
+
+    color: var(--muted);
+
+}
+
+td {
+
+    padding: 16px;
+
+    border-top: 1px solid var(--border);
+
+}
+
+tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+/* =========================
+   HEALTH GRID
+   ========================= */
+
+.health-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 20px;
+
+}
+
+@media(max-width:768px) {
+
+    .health-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* =========================
+   HEALTH BOX
+   ========================= */
+
+/* =========================
+   HEALTH BOX
+   ========================= */
+
+.health-box {
+
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+
+    border: 1px solid var(--border);
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+
+}
+
+/* title */
+
+.health-box h3 {
+
+    margin-bottom: 16px;
+
+    font-weight: 700;
+
+    font-size: 18px;
+
+    color: #1e293b;
+
+}
+
+/* =========================
+   TABLE INSIDE HEALTH BOX
+   ========================= */
+
+.health-box table {
+
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    border: 1px solid #e5e7eb;
+
+}
+
+/* table header */
+
+.health-box th {
+
+    background: #f8fafc;
+
+    padding: 12px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    color: #334155;
+
+}
+
+/* table cells */
+
+.health-box td {
+
+    padding: 12px;
+
+    font-size: 14px;
+
+    color: #334155;
+
+    border-top: 1px solid #e5e7eb;
+
+}
+
+/* alternating row color */
+
+.health-box tbody tr:nth-child(even) {
+
+    background: #f9fafb;
+
+}
+
+/* hover effect */
+
+.health-box tbody tr:hover {
+
+    background: #eef2ff;
+
+    transition: background 0.2s ease;
+
+}
+
+/* pollutant name */
+
+.health-box td:first-child {
+
+    font-weight: 600;
+
+}
+
+/* pollutant level highlight */
+
+.health-box td:last-child {
+
+    font-weight: 700;
+
+    color: #ef4444;
+
+}
+
+/* =========================
+   HEALTH EFFECTS PANEL
+   ========================= */
+
+.health-title {
+
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #334155;
+
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+
+}
+
+/* =========================
+   TABLE ALIGNMENT FIX
+   ========================= */
+
+.health-box table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* header */
+.health-box th {
+    padding: 14px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* body cells */
+.health-box td {
+    padding: 14px;
+}
+
+/* pollutant column */
+.health-box th:first-child,
+.health-box td:first-child {
+    text-align: center;
+}
+
+/* level column */
+.health-box th:last-child,
+.health-box td:last-child {
+    text-align: center;
+    font-weight: 700;
+    color: #334155;
+}
+
+/* grid layout */
+
+.effects-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 12px;
+
+}
+
+/* effect card */
+
+.effect-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #000000;
+
+    transition: all .25s ease;
+
+}
+
+/* icon */
+
+.effect-icon {
+
+    background: #f97316;
+
+    color: white;
+
+    width: 26px;
+
+    height: 26px;
+
+    display: flex;
+
+    align-content: center;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 14px;
+
+}
+
+/* hover */
+
+.effect-item:hover {
+
+    transform: translateY(-2px);
+
+    background: #ffedd5;
+
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+
+}
+
+/* =========================
+   SUCCESS MESSAGE
+   ========================= */
+
+.success-msg {
+
+    background: #ecfdf5;
+
+    border: 1px solid #10b981;
+
+    color: #047857;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    margin-top: 15px;
+
+}
+
+/* =========================
+   ERROR MESSAGE
+   ========================= */
+
+.error-msg {
+
+    background: #fef2f2;
+
+    border: 1px solid #ef4444;
+
+    color: #b91c1c;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    margin-bottom: 24px;
+
+}

@@ -222,8 +222,6 @@ if predict:
         gru_aqi=float(predictions_gru[-1])
         gru_category=categorize_aqi(gru_aqi)
 
-        card_color=get_color(lstm_category)
-
         # =========================
         # TREE MODELS
         # =========================
@@ -259,33 +257,37 @@ if predict:
         svm_aqi = float(svm_model.predict(latest_input)[0])
         svm_category = categorize_aqi(svm_aqi)
 
+        card_color = get_color(rf_category)  # RF-driven color
+
         # =========================
         # KPI CARDS
         # =========================
         st.markdown("---")
-
+        
+        current_actual_aqi = city_df.tail(1)["AQI"].values[0]
+        trend = "Rising" if rf_aqi > current_actual_aqi else "Falling"
+        
         c1,c2,c3,c4=st.columns(4)
+        card_bg = f"linear-gradient(135deg, {card_color}E6, {card_color}99)"
 
         c1.markdown(
-        f'<div class="card" style="background:{card_color};">Predicted AQI<br><h2>{lstm_aqi:.2f}</h2>{lstm_category}</div>',
+        f'<div class="card" style="background:{card_bg};">Predicted AQI<br><h2>{rf_aqi:.2f}</h2>{rf_category}</div>',
         unsafe_allow_html=True)
 
-        trend="Rising" if predictions_lstm[-1]>predictions_lstm[0] else "Falling"
-
         c2.markdown(
-        f'<div class="card" style="background:{card_color};">AQI Trend<br><h2>{trend}</h2></div>',
+        f'<div class="card" style="background:{card_bg};">AQI Trend<br><h2>{trend}</h2></div>',
         unsafe_allow_html=True)
 
         latest_pollutants=city_df.tail(1)[FEATURES].iloc[0]
-
-        dominant_pollutant=latest_pollutants[1:].idxmax()
+        pollutants_only = latest_pollutants[1:]  # Exclude AQI component
+        dominant_pollutant=str(pollutants_only.idxmax())
 
         c3.markdown(
-        f'<div class="card" style="background:{card_color};">Dominant Pollutant<br><h2>{dominant_pollutant}</h2></div>',
+        f'<div class="card" style="background:{card_bg};">Dominant Pollutant<br><h2>{dominant_pollutant}</h2></div>',
         unsafe_allow_html=True)
 
         c4.markdown(
-        f'<div class="card" style="background:{card_color};">Health Risk<br><h2>{lstm_category}</h2></div>',
+        f'<div class="card" style="background:{card_bg};">Health Risk<br><h2>{rf_category}</h2></div>',
         unsafe_allow_html=True)
 
         # =========================
