@@ -13,6 +13,8 @@ const ModelComparison = ({ comparison }) => {
                             <th>Model</th>
                             <th>Predicted AQI</th>
                             <th>Category</th>
+                            <th>MSE</th>
+                            <th>R²</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +23,8 @@ const ModelComparison = ({ comparison }) => {
                                 <td>{row.model}</td>
                                 <td>{row.predictedAqi}</td>
                                 <td>{row.category}</td>
+                                <td>{row.mse != null ? row.mse : 'N/A'}</td>
+                                <td>{row.r2 != null ? row.r2 : 'N/A'}</td>
                             </tr>
                         ))}
                     </tbody>

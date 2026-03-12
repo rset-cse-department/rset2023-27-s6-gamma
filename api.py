@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
 import numpy as np
+import json
 import joblib
 from tensorflow.keras.models import load_model
 
@@ -44,9 +45,16 @@ feature_columns = joblib.load("feature_columns.pkl")
 
 lin_model = joblib.load("models/linear_model.pkl")
 svm_model = joblib.load("models/svm_model.pkl")
+tree_scaler = joblib.load("tree_scaler.pkl")
 
 lstm_model = load_model("models/lstm_model.keras", compile=False)
 gru_model = load_model("models/gru_model.keras", compile=False)
+
+# =========================
+# LOAD PRE-COMPUTED METRICS
+# =========================
+with open("models/metrics.json", "r") as f:
+    model_metrics = json.load(f)
 
 # =========================
 # HELPERS
@@ -167,10 +175,11 @@ def predict_aqi(req: PredictRequest):
     xgb_aqi = float(xgb_model.predict(latest_input)[0])
     xgb_category = categorize_aqi(xgb_aqi)
 
-    lin_aqi = float(lin_model.predict(latest_input)[0])
+    lin_input = tree_scaler.transform(latest_input)
+    lin_aqi = float(lin_model.predict(lin_input)[0])
     lin_category = categorize_aqi(lin_aqi)
 
-    svm_aqi = float(svm_model.predict(latest_input)[0])
+    svm_aqi = float(svm_model.predict(lin_input)[0])
     svm_category = categorize_aqi(svm_aqi)
 
     card_color = get_color(rf_category)
@@ -216,12 +225,12 @@ def predict_aqi(req: PredictRequest):
             "svm": [svm_aqi] * 5
         },
         "comparison": [
-            {"model": "LSTM", "predictedAqi": round(float(lstm_aqi), 2), "category": lstm_category},
-            {"model": "GRU", "predictedAqi": round(float(gru_aqi), 2), "category": gru_category},
-            {"model": "Random Forest", "predictedAqi": round(float(rf_aqi), 2), "category": rf_category},
-            {"model": "XGBoost", "predictedAqi": round(float(xgb_aqi), 2), "category": xgb_category},
-            {"model": "Linear Regression", "predictedAqi": round(float(lin_aqi), 2), "category": lin_category},
-            {"model": "SVM", "predictedAqi": round(float(svm_aqi), 2), "category": svm_category}
+            {"model": "LSTM", "predictedAqi": round(float(lstm_aqi), 2), "category": lstm_category, "mse": model_metrics["LSTM"]["mse"], "r2": model_metrics["LSTM"]["r2"]},
+            {"model": "GRU", "predictedAqi": round(float(gru_aqi), 2), "category": gru_category, "mse": model_metrics["GRU"]["mse"], "r2": model_metrics["GRU"]["r2"]},
+            {"model": "Random Forest", "predictedAqi": round(float(rf_aqi), 2), "category": rf_category, "mse": model_metrics["Random Forest"]["mse"], "r2": model_metrics["Random Forest"]["r2"]},
+            {"model": "XGBoost", "predictedAqi": round(float(xgb_aqi), 2), "category": xgb_category, "mse": model_metrics["XGBoost"]["mse"], "r2": model_metrics["XGBoost"]["r2"]},
+            {"model": "Linear Regression", "predictedAqi": round(float(lin_aqi), 2), "category": lin_category, "mse": model_metrics["Linear Regression"]["mse"], "r2": model_metrics["Linear Regression"]["r2"]},
+            {"model": "SVM", "predictedAqi": round(float(svm_aqi), 2), "category": svm_category, "mse": model_metrics["SVM"]["mse"], "r2": model_metrics["SVM"]["r2"]}
         ],
         "healthAnalysis": {
             "dangerousPollutants": dangerous_pollutants,
