@@ -1,4 +1,4 @@
-# 🌫️ Digital Twin AQI — Kerala
+# 🌫️ Group-6 Digital Twin: AQI Prediction and Explainability
 
 > **A real-time, physics-driven, AI-augmented Digital Twin for Air Quality monitoring and forecasting across the state of Kerala, India.**
 
@@ -278,8 +278,8 @@ Both APIs are free and require no API key.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/psbuilds/Digital-Twin.git
-cd Digital-Twin-Aqi-Kochi
+git clone https://github.com/ryan1234814/RSET2023-27-S6-GAMMA.git
+cd RSET2023-27-S6-GAMMA/Group-6_Digital_Twin
 ```
 
 ### 2. Backend Setup
@@ -319,7 +319,7 @@ Open your browser at **http://127.0.0.1:5002**
 ## 📁 Project Structure
 
 ```
-Digital-Twin-Aqi-Kochi/
+Group-6_Digital_Twin/
 ├── aqi_logic/                   # AQI computation utilities
 │   ├── open_meteo_fetcher.py    # Live data ingestion (12 Kerala nodes)
 │   ├── current_aqi_rules.py     # CPCB sub-index calculator
