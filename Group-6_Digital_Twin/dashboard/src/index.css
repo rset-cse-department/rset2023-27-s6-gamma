@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-background text-slate-800;
+    }
+}
+
+/* Base leaflet overrides */
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+    /* removed invert filter to keep map light */
+}
+
+.custom-popup {
+    /* removed invert filter */
+}
