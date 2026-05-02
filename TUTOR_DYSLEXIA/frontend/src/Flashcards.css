@@ -1,0 +1,30 @@
+.flashcards-page {
+  padding: 30px;
+  text-align: center;
+}
+
+.flashcards-big {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.flashcard-big {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 40px 20px;
+  font-size: 28px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  min-height: 140px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flashcard-big.flipped {
+  background: #e8f0ff;
+}

@@ -1,0 +1,17 @@
+.chapter-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chapters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.chapter-btn {
+  text-align: left;
+}
