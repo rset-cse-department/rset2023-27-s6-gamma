@@ -1,0 +1,66 @@
+/* 1. Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* 2. Body */
+body {
+  margin: 0;
+  font-family: "Comic Neue", "Poppins", sans-serif;
+  background: linear-gradient(135deg, #fdf6e3, #e0f2fe);
+  color: #1f2937;
+}
+
+/* 3. Headings */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+/* 4. Text */
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* 5. Buttons (base) */
+button {
+  padding: 14px 22px;
+  font-size: 1.05rem;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* 6. Button types */
+.primary-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+.secondary-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.secondary-btn:hover {
+  background: #d1d5db;
+}
+
+/* 7. Card */
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}

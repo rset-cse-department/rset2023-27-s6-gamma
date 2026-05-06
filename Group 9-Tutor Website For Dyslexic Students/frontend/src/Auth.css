@@ -1,0 +1,41 @@
+.auth-container {
+  text-align: center;
+  padding: 40px;
+}
+
+input {
+  display: block;
+  margin: 15px auto;
+  padding: 12px;
+  width: 250px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.avatar-select {
+  margin: 20px 0;
+}
+
+.switch {
+  margin-top: 20px;
+  cursor: pointer;
+  color: blue;
+}
+
+.avatar-options {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.avatar-options img {
+  width: 100px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.avatar-options img.selected {
+  border: 3px solid #4a90e2;
+}
